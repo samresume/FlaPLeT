@@ -1,12 +1,63 @@
-# Machine Learning-Based Web Application for Training Solar Flare Prediction Models
+# A Full-Stack Web Application for Time Series Data Processing, Augmentation, and Predictive Modeling
 
-## Abstract
-The project, titled FlaPLeT (Flare Prediction by Learning from Time Series), can be accessed at the following link: https://flaplet.org
+## 📑 Project Funding
 
+This platform was developed as part of a research effort supported by the **National Science Foundation (NSF)** under the **Office of Advanced Cyberinfrastructure (OAC)**, aimed at providing researchers with seamless access to time series data preprocessing, augmentation, and machine learning workflows through a user-friendly web interface.
 
-This project presents a novel cyberinfrastructure designed to advance machine learning on multivariate time series and functional networks. Addressing the challenges of data representation, our infrastructure integrates both multivariate time series and functional networks, enhancing predictive and exploratory machine learning capabilities. We introduce state-of-the-art machine learning models, including Graph Neural Networks and sequence models, to improve forecasting accuracy and data interpretability across diverse domains such as neuroscience and solar physics. Additionally, the infrastructure supports data augmentation with synthetic instances, facilitating robust model training even with limited datasets. A user-friendly, web-based interface allows researchers and the public to engage with sophisticated machine learning tools without programming expertise. Our results demonstrate significant advancements in predictive modeling and contribute to the broader accessibility of machine learning applications in life sciences.
+- **Recipient Institution**: Utah State University  
+- **Award Number**: [2305781](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2305781&HistoricalAwards=false)  
+- **Project Title**: *CRII: OAC: Cyberinfrastructure for Machine Learning on Multivariate Time Series Data and Functional Networks*  
+- **Award Period**: October 1, 2022 – May 31, 2025 (estimated)  
+- **Total Award Amount**: $174,984.00
+
+## 🏗️ System Architecture
+
+The platform, *FlaPLeT* (**Fla**re **P**rediction by **Le**arning from **T**ime Series), is a modular web application designed for AI-based multivariate time series (MVTS) analysis and solar flare prediction.
+
+The system architecture includes:
+
+- **Frontend**: Built with React JS and styled using Material UI (MUI), enabling a clean, responsive, and component-based user interface.
+- **Backend**: Developed using Django and served with Waitress, the backend handles routing, user sessions, RESTful APIs, and database interactions via Django's ORM.
+- **Asynchronous Processing**: Long-running tasks such as preprocessing, augmentation, graph construction, and ML training are managed by Celery with Redis as the message broker.
+- **Web Server**: NGINX serves static files, manages HTTPS traffic, and proxies API requests to the backend.
+- **Database**: All data, including users, datasets, and results, are stored in a PostgreSQL database, ensuring reliability, transactional integrity, and scalability.
+
+This architecture ensures seamless interaction between components while supporting scalable, real-time AI workflows.
 
 <img src="Architecture.svg" width="600" alt="AI Web App Architecture" title="AI Web App Architecture">
+
+## 🚀 Platform Features
+
+The platform provides an end-to-end environment for working with multivariate time series (MVTS) data, tailored for solar flare prediction. It supports data upload, preprocessing, augmentation, graph-based transformation, and machine learning classification — all through an interactive web interface.
+
+### 1. Dataset Upload & Preprocessing
+- Upload `.pkl`-format MVTS datasets (up to 25MB).
+- Missing value handling: mean imputation or sample removal.
+- Normalization options: z-score or min-max scaling.
+- Output: Processed dataset and downloadable summary report (data shape, label distribution, normalization stats).
+
+### 2. Data Augmentation
+- Supports **SMOTE** and **TimeGAN** techniques.
+- Configurable parameters:
+  - SMOTE: `k_neighbors`
+  - TimeGAN: `batch_size`, `num_layers`, `iteration`
+- Output: Augmented dataset and detailed report (class distribution before/after, technique used, runtime).
+
+### 3. Functional Network Generation
+- Constructs graph-based datasets via Pearson correlation analysis.
+- User-defined correlation threshold and max neighbors.
+- Output: Graph (`.gpickle`), labels, and report (nodes, edges, label stats).
+
+### 4. Machine Learning Classification
+- **GRU** (for MVTS): customizable layers, hidden size, dropout, learning rate, batch size, epochs, and optimizer (`Adam`, `SGD`).
+- **SVM** (for MVTS): kernel selection and regularization strength.
+- **Node2Vec + Logistic Regression** (for graph data): embedding dimensions, walk length, window size, batch size, regularization penalty, solver, and iteration count.
+- Output: Trained model and evaluation report (Accuracy, Precision, Recall, AUC, TSS, HSS, GS).
+
+### 5. Task Management & Reporting
+- All tasks run asynchronously and are tracked by status (`running`, `completed`, `failed`).
+- Users can view task metadata, download results, and manage completed tasks.
+- Each task card displays title, description, status, hyperparameters, and relevant download buttons.
 
 ## License
 

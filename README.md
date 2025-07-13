@@ -28,7 +28,7 @@ This architecture ensures seamless interaction between components while supporti
 
 ## 🚀 Platform Features
 
-The platform provides an end-to-end environment for working with multivariate time series (MVTS) data, tailored for solar flare prediction. It supports data upload, preprocessing, augmentation, graph-based transformation, and machine learning classification — all through an interactive web interface.
+The platform provides an end-to-end environment for working with multivariate time series (MVTS) data, tailored for solar flare prediction. It supports data upload, preprocessing, augmentation, graph-based transformation, and machine learning classification, all through an interactive web interface.
 
 ### 1. Dataset Upload & Preprocessing
 - Upload `.pkl`-format MVTS datasets (up to 25MB).

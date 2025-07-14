@@ -1,0 +1,9 @@
+.well-known/
+backend/.env
+bugreport/
+certs/
+datasets/
+file_results/
+media/
+venv/
+commands.txt

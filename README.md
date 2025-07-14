@@ -64,7 +64,7 @@ The platform provides an end-to-end environment for working with multivariate ti
   
 ## 🤝 Collaboration & Contact
 
-If you're building a similar AI-based web application and would like assistance, have questions, or are interested in collaboration, feel free to reach out.
+If you're working on a similar AI-based web application and are looking for guidance, collaboration, or have any questions, feel free to reach out.
 
 📧 **Contact**: Sam EskandariNasab  
 ✉️ **Email**: [sameskandarinasab@gmail.com](mailto:sameskandarinasab@gmail.com)

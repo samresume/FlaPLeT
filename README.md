@@ -1,5 +1,7 @@
 # A Full-Stack Web Application for Time Series Data Processing, Augmentation, and Predictive Modeling
 
+<img src="flaplet.gif" width="600" alt="FlaPLeT Demo" title="FlaPLeT Demo">
+
 ## 📑 Project Funding
 
 This platform was developed as part of a research effort supported by the **National Science Foundation (NSF)** under the **Office of Advanced Cyberinfrastructure (OAC)**, aimed at providing researchers with seamless access to time series data preprocessing, augmentation, and machine learning workflows through a user-friendly web interface.

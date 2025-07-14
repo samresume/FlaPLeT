@@ -61,6 +61,14 @@ The platform provides an end-to-end environment for working with multivariate ti
 - Users can view task metadata, download results, and manage completed tasks.
 - Each task card displays title, description, status, hyperparameters, and relevant download buttons.
 
+  
+## 🤝 Collaboration & Contact
+
+If you're building a similar AI-based web application and would like assistance, have questions, or are interested in collaboration, feel free to reach out.
+
+📧 **Contact**: Sam EskandariNasab  
+✉️ **Email**: [sameskandarinasab@gmail.com](mailto:sameskandarinasab@gmail.com)
+
 ## License
 
 This project is licensed under the MIT License.

@@ -2,6 +2,16 @@
 
 <img src="flaplet.gif" width="600" alt="FlaPLeT Demo" title="FlaPLeT Demo">
 
+## 📹 Demo Videos
+
+**1. CI Project Architecture Overview**  
+This video presents a high-level explanation of the system architecture, including how Django, React, Celery, PostgreSQL, and Nginx work together to support asynchronous machine learning workflows.  
+▶️ [Watch on YouTube](https://www.youtube.com/watch?v=g-JB8GZnXdI&t=46s)
+
+**2. Full Feature Demonstration**  
+In this video, I log in to the CI platform and demonstrate every feature: dataset upload, preprocessing, data augmentation (SMOTE, TimeGAN), graph generation, ML training (GRU, SVM, Node2Vec), and downloading reports or models.  
+▶️ [Watch on YouTube](https://www.youtube.com/watch?v=gbGtOxnmhVw)
+
 ## 📑 Project Funding
 
 This platform was developed as part of a research effort supported by the **National Science Foundation (NSF)** under the **Office of Advanced Cyberinfrastructure (OAC)**, aimed at providing researchers with seamless access to time series data preprocessing, augmentation, and machine learning workflows through a user-friendly web interface.

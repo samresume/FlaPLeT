@@ -5,11 +5,13 @@
 ## 📹 Demo Videos
 
 **1. CI Project Architecture Overview**  
-This video presents a high-level explanation of the system architecture, including how Django, React, Celery, PostgreSQL, and Nginx work together to support asynchronous machine learning workflows.  
+This video presents a high-level explanation of the system architecture, including how Django, React, Celery, PostgreSQL, Nginx, and Waitress work together to support asynchronous machine learning workflows. 
+
 ▶️ [Watch on YouTube](https://www.youtube.com/watch?v=g-JB8GZnXdI&t=46s)
 
 **2. Full Feature Demonstration**  
-In this video, I log in to the CI platform and demonstrate every feature: dataset upload, preprocessing, data augmentation (SMOTE, TimeGAN), graph generation, ML training (GRU, SVM, Node2Vec), and downloading reports or models.  
+In this video, I log in to the CI platform and demonstrate every feature: dataset upload, preprocessing, data augmentation (SMOTE), graph generation, ML training (GRU, SVM, Node2Vec), and downloading reports or models. 
+
 ▶️ [Watch on YouTube](https://www.youtube.com/watch?v=gbGtOxnmhVw)
 
 ## 📑 Project Funding

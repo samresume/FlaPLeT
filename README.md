@@ -1,4 +1,4 @@
-# A Full-Stack Web Application for Time Series Data Processing, Augmentation, and Predictive Modeling
+# A Full-Stack Web Application for Time Series Machine Learning Workflows
 
 <img src="flaplet.gif" width="600" alt="FlaPLeT Demo" title="FlaPLeT Demo">
 

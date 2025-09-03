@@ -1,4 +1,4 @@
-# A Full-Stack Web Application for Time Series Machine Learning Workflows
+# FlaPLeT: A Full-Stack Web Platform for End-to-End Time Series Data Processing and Machine Learning in Solar Flare Prediction
 
 <img src="flaplet.gif" width="600" alt="FlaPLeT Demo" title="FlaPLeT Demo">
 

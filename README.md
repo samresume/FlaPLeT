@@ -24,6 +24,10 @@ This platform was developed as part of a research effort supported by the **Nati
 - **Award Period**: October 1, 2022 – May 31, 2025 (estimated)  
 - **Total Award Amount**: $174,984.00
 
+## 📄 Publication Status
+
+The paper describing this platform is currently under review at *SoftwareX*.
+
 ## 🏗️ System Architecture
 
 The platform, *FlaPLeT* (**Fla**re **P**rediction by **Le**arning from **T**ime Series), is a modular web application designed for AI-based multivariate time series (MVTS) analysis and solar flare prediction.

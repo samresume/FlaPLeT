@@ -18,16 +18,6 @@ In this video, I log in to the FlaPLeT platform and demonstrate every feature: d
 
 ▶️ [Watch on YouTube](https://www.youtube.com/watch?v=gbGtOxnmhVw)
 
-## 📑 Project Funding
-
-This platform was developed as part of a research effort supported by the **National Science Foundation (NSF)** under the **Office of Advanced Cyberinfrastructure (OAC)**, aimed at providing researchers with seamless access to time series data preprocessing, augmentation, and machine learning workflows through a user-friendly web interface.
-
-- **Recipient Institution**: Utah State University  
-- **Award Number**: [2305781](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2305781&HistoricalAwards=false)  
-- **Project Title**: *CRII: OAC: Cyberinfrastructure for Machine Learning on Multivariate Time Series Data and Functional Networks*  
-- **Award Period**: October 1, 2022 – May 31, 2025 (estimated)  
-- **Total Award Amount**: $174,984.00
-
 
 ## 🏗️ System Architecture
 
@@ -44,6 +34,121 @@ The system architecture includes:
 This architecture ensures seamless interaction between components while supporting scalable, real-time AI workflows.
 
 <img src="Architecture.svg" width="600" alt="AI Web App Architecture" title="AI Web App Architecture">
+
+
+## FlaPLeT Deployment Guide (Windows)
+
+We explain how to set up **FlaPLeT** on a Windows server with a **static IP** mapped to a **domain** (e.g., `flaplet.example.com`).  
+It covers installing prerequisites, cloning the repo, configuring environment variables, running the backend/frontend, Celery workers, and deploying with Nginx.
+
+### 0) Prerequisites
+
+Install the following on Windows:
+
+- **Python** 3.9 – 3.11  
+  [Download](https://www.python.org/downloads/)
+
+- **Node.js** 18+ (with npm)  
+  [Download](https://nodejs.org/en/download/)
+
+- **PostgreSQL** 13+  
+  [Download](https://www.postgresql.org/download/)
+
+- **Redis** (Windows build)  
+  [Download](https://github.com/microsoftarchive/redis/releases)
+
+- **Nginx** (Windows build)  
+  [Download](https://nginx.org/en/download.html)
+  ```
+  C:\nginx\           # Nginx installation folder
+  ```
+
+- **Git**  
+  [Download](https://git-scm.com/downloads)
+
+- **Waitress** (production WSGI server for Django)  
+  ```powershell
+  ```
+  pip install waitress
+  ```
+
+### 1) Clone the Repository
+
+```
+cd C:\
+git clone https://github.com/samresume/FlaPLeT.git
+```
+
+Folder layout after cloning:
+```
+C:\nginx\           # Nginx installation folder
+C:\FlaPLeT\         # Cloned repo
+```
+
+### 2) IP and DNS Configuration
+
+Your server must be reachable on the internet with a **dedicated static IP address**. All incoming HTTP (port 80) and HTTPS (port 443) traffic should be routed to your server.
+
+- If you are deploying on a **local Windows machine** at home or in an office, you need:
+  1. An internet connection with a **static IP address** (assigned by your ISP).  
+  2. A router configured with **port forwarding** so that external traffic on ports 80 and 443 is forwarded to your computer’s local IP address (e.g., `192.168.0.50`).  
+
+In our case, we configured the router’s **Port Forwarding** rules so that external requests on ports 80 and 443 are forwarded to the local server at `192.168.0.50`.
+
+<img src="port_forwarding.png" width="400" alt="Port Forwarding rules" title="Port Forwarding rules">
+
+We also set up DNS records so that our domain `flaplet.org` (for the frontend) and `api.flaplet.org` (for the backend) both point to our static public IP address.  
+
+<img src="dns.png" width="400" alt="DNS records" title="DNS records">
+
+⚠️ **Important:** If your ISP provides only a **shared IP address** (e.g., behind Carrier-Grade NAT), inbound requests from the internet cannot reach your network. To host a public-facing service, you must obtain a **dedicated static IP** from your ISP.
+
+
+
+
+### 3) Frontend (React)
+
+cd C:\FlaPLeT\frontend
+npm install
+npm run build
+
+The compiled site will be in: C:\FlaPLeT\frontend\build\
+
+### 4) Backend (Django)
+
+cd C:\FlaPLeT\backend
+py -m venv venv
+Set-ExecutionPolicy Unrestricted -Scope Process
+.\venv\Scripts\activate
+pip install -r requirements.txt
+
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py collectstatic --noinput
+
+### 5) Nginx Configuration
+
+
+### 2) Configure Backend Environment
+
+Ensure .env (C:\FlaPLeT\backend\.env) has the following keys (replace values as needed):
+
+DJANGO_SECRET_KEY=***your-secret***
+DJANGO_DEBUG=False
+ALLOWED_HOSTS=flaplet.example.com,localhost,127.0.0.1
+
+DATABASE_URL=postgres://<DB_USER>:<DB_PASS>@127.0.0.1:5432/<DB_NAME>
+
+REDIS_URL=redis://127.0.0.1:6379/0
+CELERY_BROKER_URL=redis://127.0.0.1:6379/0
+CELERY_RESULT_BACKEND=redis://127.0.0.1:6379/1
+
+STATIC_ROOT=C:\FlaPLeT\static\
+MEDIA_ROOT=C:\FlaPLeT\media\
+
+CSRF_TRUSTED_ORIGINS=https://flaplet.example.com
+
+
 
 ## 🚀 Platform Features
 
@@ -76,7 +181,17 @@ The platform provides an end-to-end environment for working with multivariate ti
 ### 5. Task Management & Reporting
 - All tasks run asynchronously and are tracked by status (`running`, `completed`, `failed`).
 - Users can view task metadata, download results, and manage completed tasks.
-- Each task card displays title, description, status, hyperparameters, and relevant download buttons.
+
+
+## 📑 Project Funding
+
+This platform was developed as part of a research effort supported by the **National Science Foundation (NSF)** under the **Office of Advanced Cyberinfrastructure (OAC)**, aimed at providing researchers with seamless access to time series data preprocessing, augmentation, and machine learning workflows through a user-friendly web interface.
+
+- **Recipient Institution**: Utah State University  
+- **Award Number**: [2305781](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2305781&HistoricalAwards=false)  
+- **Project Title**: *CRII: OAC: Cyberinfrastructure for Machine Learning on Multivariate Time Series Data and Functional Networks*  
+- **Award Period**: October 1, 2022 – May 31, 2025 (estimated)  
+- **Total Award Amount**: $174,984.00
 
   
 ## 🤝 Collaboration & Contact

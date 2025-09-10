@@ -103,17 +103,56 @@ We also set up DNS records so that our domain `flaplet.org` (for the frontend) a
 ⚠️ **Important:** If your ISP provides only a **shared IP address** (e.g., behind Carrier-Grade NAT), inbound requests from the internet cannot reach your network. To host a public-facing service, you must obtain a **dedicated static IP** from your ISP.
 
 
+### 3) SSL Certificate
+
+We purchased two SSL certificates from [https://www.sslforfree.com/](https://www.sslforfree.com/):  
+- One for the frontend domain (`flaplet.org`)  
+- One for the backend domain (`api.flaplet.org`)  
+
+These certificates provide the necessary key and certificate files that will be referenced in the **Nginx configuration** to enable HTTPS. Once configured, Nginx will terminate SSL/TLS and ensure that all traffic is served securely over **HTTPS only**.
 
 
-### 3) Frontend (React)
+### 4) Nginx Configuration
 
+Please check the **`nginx_settings`** folder in this repository, which contains all required Nginx configuration files for both the frontend and backend.
+
+1. Replace the default `C:\nginx\conf\nginx.conf` with the one provided in `nginx_settings\nginx.conf`.  
+   - Update this file as needed for your environment:
+     - Domain name: `flaplet.org`
+     - SSL certificate/key paths (e.g., change from `C:/Users/eskan/CI/frontend/certs` to `C:/FlaPLeT/frontend/certs`)
+     - React build root (e.g., change from `C:/Users/eskan/CI/frontend/build` to `C:/FlaPLeT/frontend/build`)
+
+2. Create two folders in your Nginx root directory (`C:\nginx\`):
+   ```
+   C:\nginx\sites-available\
+   C:\nginx\sites-enabled\
+   ```
+3.	Copy nginx_settings\webproject_nginx.conf into C:\nginx\sites-available\ and then place a copy into C:\nginx\sites-enabled\. Update both as needed:
+	•	Domain name: api.flaplet.org
+	•	SSL certificate/key paths (e.g., change from C:/Users/eskan/CI/backend/certs to C:/FlaPLeT/backend/certs)
+	•	Backend root (e.g., change from C:/Users/eskan/CI/backend to C:/FlaPLeT/backend)
+Also make sure these empty directories exist under C:\FlaPLeT\backend\:
+```
+C:\FlaPLeT\backend\static
+C:\FlaPLeT\backend\media
+C:\FlaPLeT\backend\bugreport
+C:\FlaPLeT\backend\datasets
+C:\FlaPLeT\backend\file_results
+```
+
+### 5) Frontend (React)
+Install the frontend dependencies and build the production bundle:
+
+```
 cd C:\FlaPLeT\frontend
 npm install
 npm run build
+```
 
 The compiled site will be in: C:\FlaPLeT\frontend\build\
 
-### 4) Backend (Django)
+
+### 5) Backend (Django)
 
 cd C:\FlaPLeT\backend
 py -m venv venv

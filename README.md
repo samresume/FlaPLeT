@@ -117,20 +117,21 @@ These certificates provide the necessary key and certificate files that will be 
 Please check the **`nginx_settings`** folder in this repository, which contains all required Nginx configuration files for both the frontend and backend.
 
 1. Replace the default `C:\nginx\conf\nginx.conf` with the one provided in `nginx_settings\nginx.conf`.  
-   - Update this file as needed for your environment:
-     - Domain name: `flaplet.org`
-     - SSL certificate/key paths (e.g., change from `C:/Users/eskan/CI/frontend/certs` to `C:/FlaPLeT/frontend/certs`)
-     - React build root (e.g., change from `C:/Users/eskan/CI/frontend/build` to `C:/FlaPLeT/frontend/build`)
+Update this file as needed for your environment:
+- Domain name: `flaplet.org`
+- SSL certificate/key paths (e.g., change from `C:/Users/eskan/CI/frontend/certs` to `C:/FlaPLeT/frontend/certs`)
+- React build root (e.g., change from `C:/Users/eskan/CI/frontend/build` to `C:/FlaPLeT/frontend/build`)
 
 2. Create two folders in your Nginx root directory (`C:\nginx\`):
    ```
    C:\nginx\sites-available\
    C:\nginx\sites-enabled\
    ```
-3.	Copy nginx_settings\webproject_nginx.conf into C:\nginx\sites-available\ and then place a copy into C:\nginx\sites-enabled\. Update both as needed:
-	•	Domain name: api.flaplet.org
-	•	SSL certificate/key paths (e.g., change from C:/Users/eskan/CI/backend/certs to C:/FlaPLeT/backend/certs)
-	•	Backend root (e.g., change from C:/Users/eskan/CI/backend to C:/FlaPLeT/backend)
+3.	Copy nginx_settings\webproject_nginx.conf into C:\nginx\sites-available\ and then place a copy into C:\nginx\sites-enabled\.
+Update both as needed:
+- Domain name: api.flaplet.org
+- SSL certificate/key paths (e.g., change from C:/Users/eskan/CI/backend/certs to C:/FlaPLeT/backend/certs)
+- Backend root (e.g., change from C:/Users/eskan/CI/backend to C:/FlaPLeT/backend)
 Also make sure these empty directories exist under C:\FlaPLeT\backend\:
 ```
 C:\FlaPLeT\backend\static

@@ -127,7 +127,7 @@ Update this file as needed for your environment:
    C:\nginx\sites-available\
    C:\nginx\sites-enabled\
    ```
-3.	Copy nginx_settings\webproject_nginx.conf into C:\nginx\sites-available\ and then place a copy into C:\nginx\sites-enabled\.
+3.	Copy nginx_settings\webproject_nginx.conf into C:\nginx\sites-available\ and then place a copy into C:\nginx\sites-enabled\ .
 Update both as needed:
   - Domain name: api.flaplet.org
   - SSL certificate/key paths (e.g., change from C:/Users/eskan/CI/backend/certs to C:/FlaPLeT/backend/certs)

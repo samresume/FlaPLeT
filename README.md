@@ -90,7 +90,7 @@ Your server must be reachable on the internet with a **dedicated static IP addre
 
 - If you are deploying on a **local Windows machine** at home or in an office, you need:
   1. An internet connection with a **static IP address** (assigned by your ISP).  
-  2. A router configured with **port forwarding** so that external traffic on ports 80 and 443 is forwarded to your computer’s local IP address (e.g., `192.168.0.50`).  
+  2. A router configured with **port forwarding** so that external traffic on ports 80 and 443 is forwarded to your computer’s local IP address.  
 
 In our case, we configured the router’s **Port Forwarding** rules so that external requests on ports 80 and 443 are forwarded to the local server at `192.168.0.50`.
 

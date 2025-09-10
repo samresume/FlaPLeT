@@ -1,16 +1,16 @@
-# FlaPLeT: A Full-Stack Web Platform for End-to-End Time Series Data Processing and Machine Learning in Solar Flare Prediction
+## FlaPLeT: A Full-Stack Web Platform for End-to-End Time Series Data Processing and Machine Learning in Solar Flare Prediction
 
 <img src="flaplet.gif" width="600" alt="FlaPLeT Demo" title="FlaPLeT Demo">
 
 ## 📹 Demo Videos
 
-**1. CI Project Architecture Overview**  
-This video presents a high-level explanation of the system architecture, including how Django, React, Celery, PostgreSQL, Nginx, and Waitress work together to support asynchronous machine learning workflows. 
+**1. FlaPLeT Architecture Overview**  
+This video presents a high-level explanation of the system architecture, including how Django, React, Celery, PostgreSQL, Redis, Nginx, and Waitress work together to support asynchronous machine learning workflows. 
 
 ▶️ [Watch on YouTube](https://www.youtube.com/watch?v=g-JB8GZnXdI&t=46s)
 
-**2. Full Feature Demonstration**  
-In this video, I log in to the CI platform and demonstrate every feature: dataset upload, preprocessing, data augmentation (SMOTE), graph generation, ML training (GRU, SVM, Node2Vec), and downloading reports or models. 
+**2. FlaPLeT Functionality Demonstration**  
+In this video, I log in to the FlaPLeT platform and demonstrate every feature: dataset upload, preprocessing, data augmentation (SMOTE), graph generation, ML training (GRU, SVM, Node2Vec), and downloading reports or models. 
 
 ▶️ [Watch on YouTube](https://www.youtube.com/watch?v=gbGtOxnmhVw)
 

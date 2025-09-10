@@ -67,7 +67,6 @@ Install the following on Windows:
   [Download](https://git-scm.com/downloads)
 
 - **Waitress** (production WSGI server for Django)  
-  ```powershell
   ```
   pip install waitress
   ```

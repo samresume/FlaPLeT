@@ -2,6 +2,10 @@
 
 <img src="flaplet.gif" width="600" alt="FlaPLeT Demo" title="FlaPLeT Demo">
 
+## 📄 Publication Status
+
+The paper describing this platform is currently under review at *SoftwareX*.
+
 ## 📹 Demo Videos
 
 **1. FlaPLeT Architecture Overview**  
@@ -24,9 +28,6 @@ This platform was developed as part of a research effort supported by the **Nati
 - **Award Period**: October 1, 2022 – May 31, 2025 (estimated)  
 - **Total Award Amount**: $174,984.00
 
-## 📄 Publication Status
-
-The paper describing this platform is currently under review at *SoftwareX*.
 
 ## 🏗️ System Architecture
 

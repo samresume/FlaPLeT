@@ -38,7 +38,7 @@ This architecture ensures seamless interaction between components while supporti
 
 ## FlaPLeT Deployment Guide (Windows)
 
-We explain how to set up **FlaPLeT** on a Windows server with a **static IP** mapped to a **domain** (e.g., `flaplet.example.com`).  
+We explain how to set up **FlaPLeT** on a Windows server with a **static IP** mapped to a **domain** (e.g., `flaplet.com`).  
 It covers installing prerequisites, cloning the repo, configuring environment variables, running the backend/frontend, Celery workers, and deploying with Nginx.
 
 ### 0) Prerequisites

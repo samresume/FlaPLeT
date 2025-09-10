@@ -154,39 +154,92 @@ npm run build
 The compiled site will be in: C:\FlaPLeT\frontend\build\
 
 
-### 5) Backend (Django)
+### 6) Configure Backend Environment
 
+Create or update `C:\FlaPLeT\backend\backend\.env` with the following (edit the values):
+```
+--- Django core ---
+SECRET_KEY= replace-with-a-strong-random-string (generate using https://djecrety.ir/)
+ALLOWED_HOSTS=localhost,127.0.0.1,api.flaplet.org,flaplet.org (change as necessary)
+
+--- Database (PostgreSQL) ---
+Create a database and user in PostgreSQL, then use those values here
+DB_NAME=Database_NAME
+DB_USER=Database_USER
+DB_PASSWORD=Database_PASSWORD
+DB_HOST=127.0.0.1
+DB_PORT=5432
+
+--- Redis / Celery ---
+CELERY_BROKER_URL=redis://127.0.0.1:6379
+
+--- Security: CSRF / CORS ---
+CORS_ORIGIN_WHITELIST=https://flaplet.org,https://api.flaplet.org,https://139.64.170.58
+CSRF_TRUSTED_ORIGINS=https://api.flaplet.org,https://flaplet.org,https://139.64.170.58
+
+--- reCAPTCHA (server-side secret) ---
+RECAPTCHA_SECRET=your-google-recaptcha-secret
+```
+
+### 7) Backend (Django)
+
+Install backend dependencies and create a Django superuser (for the admin panel).  
+**Always use the virtual environment** so the correct packages (e.g., TensorFlow) are used.
+
+```
 cd C:\FlaPLeT\backend
+
+# Create & activate a virtual environment
 py -m venv venv
 Set-ExecutionPolicy Unrestricted -Scope Process
 .\venv\Scripts\activate
+
+# Install Python dependencies into the venv
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 
+# Apply database migrations and create an admin user
 python manage.py migrate
 python manage.py createsuperuser
+
+# Collect static files for production (Nginx will serve these)
 python manage.py collectstatic --noinput
+```
 
-### 5) Nginx Configuration
+### 8) Running the Application
 
+To bring the whole system online, you need to run **three processes**:  
+1. **Nginx** (serves frontend and proxies requests to backend)  
+2. **Django backend** (serves API at `127.0.0.1:8000`)  
+3. **Celery worker** (handles background tasks)
 
-### 2) Configure Backend Environment
+Open **three separate Command Prompt / PowerShell windows** and run:
 
-Ensure .env (C:\FlaPLeT\backend\.env) has the following keys (replace values as needed):
+**1. Start Nginx**
+```
+cd C:\nginx
+start nginx
+```
 
-DJANGO_SECRET_KEY=***your-secret***
-DJANGO_DEBUG=False
-ALLOWED_HOSTS=flaplet.example.com,localhost,127.0.0.1
+If Nginx is already running, reload instead of starting:
+```
+nginx -s reload
+```
 
-DATABASE_URL=postgres://<DB_USER>:<DB_PASS>@127.0.0.1:5432/<DB_NAME>
+2. Start Django backend
 
-REDIS_URL=redis://127.0.0.1:6379/0
-CELERY_BROKER_URL=redis://127.0.0.1:6379/0
-CELERY_RESULT_BACKEND=redis://127.0.0.1:6379/1
+```
+cd C:\FlaPLeT\backend
+.\venv\Scripts\activate
+python manage.py runserver
+```
 
-STATIC_ROOT=C:\FlaPLeT\static\
-MEDIA_ROOT=C:\FlaPLeT\media\
-
-CSRF_TRUSTED_ORIGINS=https://flaplet.example.com
+3. Start Celery worker
+```
+cd C:\FlaPLeT\backend
+.\venv\Scripts\activate
+celery -A backend.celery worker --pool=solo -l info
+```
 
 
 

@@ -132,6 +132,7 @@ Update both as needed:
   - Domain name: api.flaplet.org
   - SSL certificate/key paths (e.g., change from C:/Users/eskan/CI/backend/certs to C:/FlaPLeT/backend/certs)
   - Backend root (e.g., change from C:/Users/eskan/CI/backend to C:/FlaPLeT/backend)
+
 Also make sure these empty directories exist under C:\FlaPLeT\backend\:
 ```
 C:\FlaPLeT\backend\static
